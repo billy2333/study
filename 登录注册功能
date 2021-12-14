@@ -1,0 +1,21 @@
+import shelve
+def register(name,passwd):
+    with shelve.open('passwd') as fp:
+        if name in fp:
+            print('用户名重名')
+        else:
+            fp[name]=hash(passwd)
+def show():
+    with shelve.open('passwd') as fp:
+        for item in fp.items():
+            print(item)
+register('Tom','123456')
+register('Mike','abcdef')
+register('Jane','good')
+show()
+#登录的实现
+def login(name,passwd):
+    with shelve.open('passwd') as fp:
+        if passwd in fp:
+            print('密码正确，登陆成功')
+        else:
