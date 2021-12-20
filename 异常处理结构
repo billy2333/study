@@ -1,0 +1,39 @@
+with open('abc.txt') as fp:
+    print(fp.read())
+
+try:
+    with open('abc.txt') as fp:
+        print(fp.read())
+except FileNotFoundError:
+    print('abc.txt is not found.')
+
+with open('abc.txt','w') as fp:
+    fp.write('Hello world.')
+
+try:
+with open('abc.txt','x') as fp:
+    fp.write('Good luck.')
+except FileExistsError:
+    print('abc.txt has existed.')
+
+try:
+    print(a)
+except NameError:
+    print('a is not defineed.')
+
+def mye(level):
+    if level < 1:
+        raise ValueError('Invalid level')
+    pass
+
+try:
+    x=input('x=')
+    mye(x)
+except TypeError:
+    x=int(x)
+    try:
+        mye(x)
+    except ValueError as e:
+        print(repr(e))
+except ValueError as e:
+    print(repr(e))
