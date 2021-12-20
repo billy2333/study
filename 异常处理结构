@@ -37,3 +37,27 @@ except TypeError:
         print(repr(e))
 except ValueError as e:
     print(repr(e))
+    
+'''
+#异常处理结构案例：一元二次方程
+'''
+try:
+    a=float(input('a='))
+    b=float(input('b='))
+    c=float(input('c='))
+    deta=math.sqrt(b*b-4*a*c)
+    x1=(-b+deta)/(2*a)
+    x2=(-b-deta)/(2*a)
+    print(x1,x2)
+except ValueError as e:
+    if (str(e)) == 'math domain error'):
+        print('No real roots')
+    else:
+        print('a,b,c input error')
+except ZeroDivisionError:
+    if b !=0:
+        x=-c/b:
+    else：
+        print（'a=0,b=0')
+except:
+    
